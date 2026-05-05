@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-xv-dark text-white overflow-x-hidden antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-normal;
+  }
+}
+
+/* Audio Button */
+.audio-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  background: rgba(61, 12, 12, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(212, 175, 55, 0.8);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.audio-btn--visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.audio-btn:hover {
+  border-color: rgba(212, 175, 55, 0.8);
+  color: #E8D48B;
+  background: rgba(61, 12, 12, 0.85);
+}
+
+.audio-btn:active {
+  transform: scale(0.93);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audio-btn {
+    transition: opacity 0.2s ease;
+  }
+}
+
+/* Custom Scrollbar - Elegant and subtle */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3); /* gold translucid */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.7);
+}
+
+/* GSAP hidden defaults where necessary */
+.gsap-reveal {
+  visibility: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Crown: float + glow — GPU only (transform + filter + opacity) */
+@keyframes crownFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes crownGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.35));
+    opacity: 0.92;
+  }
+  50% {
+    filter: drop-shadow(0 0 22px rgba(212, 175, 55, 0.65));
+    opacity: 1;
+  }
+}
+
+/* Scroll arrow bounce — GPU only */
+@keyframes heroBounce {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+.animate-crown {
+  animation:
+    crownFloat 8s ease-in-out infinite,
+    crownGlow 6s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+.animate-hero-bounce {
+  animation: heroBounce 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Respect user preference — disable all decorative motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-crown,
+  .animate-hero-bounce {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
+/* RSVP Button Pulse Animation */
+@keyframes rsvpPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.animate-pulse-gold {
+  animation: rsvpPulse 2.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-gold {
+    animation: none !important;
+  }
+}
+
+/* Cierre Section: Dramatic Animations */
+@keyframes haloPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes shimmerSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes lightRaysRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes signatureReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Navbar height: 60px mobile → 70px desktop */
+@media (min-width: 640px) {
+  [data-hero-navbar] {
+    height: 70px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   APERTURA — Keyframes y clases de animación idle
+   ═══════════════════════════════════════════════════════════ */
+
+/* Sobre flotando suavemente (invita a interactuar) */
+@keyframes envelopeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+.ap-float {
+  animation: envelopeFloat 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Halo dorado pulsando detrás del sobre */
+@keyframes aperturaGlowPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+.ap-glow {
+  animation: aperturaGlowPulse 2.5s ease-in-out infinite;
+}
+
+/* Flecha "Abre tu invitación" — rebota hacia arriba apuntando al sobre */
+@keyframes bounceUp {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.ap-bounce {
+  animation: bounceUp 1.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Destello metálico recorriendo el sello de cera cada 3s */
+@keyframes sealShimmer {
+  0% {
+    transform: translateX(-150%) rotate(35deg);
+  }
+  100% {
+    transform: translateX(150%) rotate(35deg);
+  }
+}
+.ap-shimmer {
+  animation: sealShimmer 3s ease-in-out infinite;
+}
+
+/* Desactivar animaciones decorativas con reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .ap-float,
+  .ap-bounce,
+  .ap-shimmer,
+  .ap-glow {
+    animation: none !important;
+    will-change: auto;
+  }
+}

@@ -276,7 +276,7 @@ const Hero = () => {
                             maxWidth: '26ch',
                         }}
                     >
-                        Con la bendición de Dios y mis padres,&nbsp;
+                        Con la bendición de Dios y mis padres,
                         te invito a celebrar conmigo
                     </p>
 

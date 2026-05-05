@@ -38,10 +38,10 @@ const Apertura = ({ onComplete }) => {
   useEffect(() => {
     if (!isReturning) return;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const delay = reducedMotion ? 0 : 1500;
+    const delay = reducedMotion ? 0 : 10000;
     const t = setTimeout(() => handleOpen(), delay);
     return () => clearTimeout(t);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOpen = () => {

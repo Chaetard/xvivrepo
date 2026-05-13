@@ -190,12 +190,24 @@ const Cierre = () => {
 
                 {/* H. Fecha Final */}
                 <div className="cierre-fecha">
-                    <p className="font-body text-xv-gold/75 tracking-[0.4em] uppercase"
+                    <p className="font-body text-xv-gold/75 tracking-[0.4em] uppercase mb-12"
                         style={{ fontSize: 'clamp(0.9rem, 3vw, 1.1rem)' }}>
                         23 · MAYO · 2026
                     </p>
                 </div>
+            </div>
 
+            {/* I. Crédito ultra-minimalista al borde inferior */}
+            <div className="absolute bottom-8 w-full text-center z-20 opacity-40 hover:opacity-100 transition-opacity duration-500">
+                <a
+                    href="https://n0kemm.dev/?utm_source=xv_invitation&utm_medium=footer&utm_campaign=credits"
+                    id="portfolio-credit-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xv-gold text-[9px] uppercase tracking-[0.6em] font-sans"
+                >
+                    n0kemm.dev
+                </a>
             </div>
         </section>
     );

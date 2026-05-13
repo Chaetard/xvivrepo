@@ -23,6 +23,18 @@ const Footer = () => {
                     <span className="font-serif text-4xl text-secondary">L</span>
                     <div className="w-16 h-[2px] bg-secondary"></div>
                 </div>
+
+                <div className="mt-20 opacity-40 hover:opacity-100 transition-opacity duration-500">
+                    <a
+                        href="https://n0kemm.dev/?utm_source=xv_invitation&utm_medium=footer&utm_campaign=credits"
+                        id="footer-portfolio-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-secondary text-[9px] uppercase tracking-[0.6em] font-sans"
+                    >
+                        n0kemm.dev
+                    </a>
+                </div>
             </div>
 
             {/* Decorative background abstract shapes */}

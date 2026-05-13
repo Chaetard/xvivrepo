@@ -44,7 +44,7 @@ export const IMAGES = {
 export const eventData = {
   quinceanera: "Lidiana",
   parents: "Isabel Armenta & Carlos Vázquez Fausto",
-  godparents: "Juana Rodríguez Armenta & Víctor Rodríguez García",
+  godparents: "Juana Armenta Rodríguez & Víctor Rodríguez García",
   date: "Sábado 23 de Mayo, 2026",
   time: "7:00 PM",
   targetDate: "2026/05/23 19:00:00",
